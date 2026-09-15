@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%" role="img" aria-label="Fully Insured Tree Service Badge">
+  <path d="M50,8 L85,22 C85,60 50,88 50,88 C50,88 15,60 15,22 Z" fill="#1B3320" stroke="#8FCB3E" stroke-width="4"/>
+  <path d="M50,16 L77,27 C77,57 50,80 50,80 C50,80 23,57 23,27 Z" fill="#14170F"/>
+  <!-- Checkmark -->
+  <polyline points="34,50 45,62 66,36" fill="none" stroke="#8FCB3E" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="100%" height="100%" role="img" aria-label="Corey Coupland, ISA Certified Arborist, climbing tree with safety rigging and STIHL chainsaw in Houston canopy">
+  <defs>
+    <linearGradient id="canopyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#408933"/>
+      <stop offset="60%" stop-color="#245820"/>
+      <stop offset="100%" stop-color="#142C16"/>
+    </linearGradient>
+    <linearGradient id="barkGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3A2417"/>
+      <stop offset="50%" stop-color="#553A26"/>
+      <stop offset="100%" stop-color="#2A1B11"/>
+    </linearGradient>
+    <linearGradient id="skyBack" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#9BC0DE"/>
+      <stop offset="100%" stop-color="#D7E7F2"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Sky & Back Canopy Background -->
+  <rect x="0" y="0" width="600" height="450" fill="url(#skyBack)"/>
+
+  <!-- Sun Dappled Tree Foliage -->
+  <g opacity="0.85">
+    <circle cx="100" cy="80" r="110" fill="#3D7E31"/>
+    <circle cx="230" cy="50" r="130" fill="#4B963B"/>
+    <circle cx="390" cy="70" r="140" fill="#35732A"/>
+    <circle cx="530" cy="110" r="120" fill="#295E20"/>
+    <circle cx="50" cy="200" r="90" fill="#2F6625"/>
+    <circle cx="550" cy="240" r="110" fill="#24511D"/>
+  </g>
+
+  <!-- Massive Oak Branch System Corey is Rigged Onto -->
+  <!-- Main Trunk / Big Lateral Limb -->
+  <path d="M0,380 C180,360 300,320 420,290 C500,270 560,250 600,240 L600,340 C520,350 420,380 280,410 C160,430 0,440 0,440 Z" fill="url(#barkGrad)" stroke="#1B3320" stroke-width="4"/>
+  <!-- Secondary Upper Branch -->
+  <path d="M380,300 C430,220 480,160 560,110 L590,130 C510,180 460,240 420,310 Z" fill="url(#barkGrad)" stroke="#1B3320" stroke-width="3"/>
+
+  <!-- Rigging Lines & Friction Saver -->
+  <path d="M490,130 L450,230" stroke="#E6591F" stroke-width="5" stroke-dasharray="8,2"/>
+  <path d="M450,230 L380,260" stroke="#E6591F" stroke-width="5"/>
+  <!-- Carabiner -->
+  <circle cx="450" cy="230" r="7" fill="none" stroke="#CBD5E1" stroke-width="4"/>
+
+  <!-- ARBORIST FIGURE (Corey Coupland) -->
+  <g id="arborist-corey">
+    <!-- Back Leg / Footing on Branch -->
+    <path d="M300,330 L340,360 L380,355 L350,335 Z" fill="#22334A" stroke="#0F172A" stroke-width="3"/>
+    <!-- Front Leg & Heavy Work Pants -->
+    <path d="M320,270 L350,345 L410,335 L380,265 Z" fill="#1E293B" stroke="#0F172A" stroke-width="3.5"/>
+    <!-- Heavy Duty Tree Climbing Boot -->
+    <path d="M380,345 L430,345 C435,345 440,350 435,358 L400,360 L375,355 Z" fill="#4A3324" stroke="#0F172A" stroke-width="3"/>
+
+    <!-- High-Vis Lime Green Long Sleeve Shirt (Torso) -->
+    <path d="M330,210 C340,195 380,195 400,210 L415,280 C390,285 340,285 320,275 Z" fill="#8FCB3E" stroke="#14170F" stroke-width="4"/>
+
+    <!-- Professional Tree Climbing Harness / Saddle -->
+    <path d="M325,260 L410,260 L405,285 L325,282 Z" fill="#0F172A" stroke="#8FCB3E" stroke-width="2"/>
+    <rect x="355" y="262" width="22" height="18" rx="2" fill="#94A3B8"/>
+    <!-- Harness D-Rings and Lanyard Connection -->
+    <circle cx="366" cy="271" r="6" fill="none" stroke="#E2E8F0" stroke-width="3"/>
+
+    <!-- High-Vis Shirt Arms Extended Operating Chainsaw -->
+    <!-- Left Arm -->
+    <path d="M335,215 L280,240 L270,260 L300,265 L345,235 Z" fill="#8FCB3E" stroke="#14170F" stroke-width="3.5"/>
+    <!-- Right Arm -->
+    <path d="M395,215 L430,245 L420,270 L390,265 L375,235 Z" fill="#8FCB3E" stroke="#14170F" stroke-width="3.5"/>
+
+    <!-- Heavy Arborist Work Gloves -->
+    <ellipse cx="265" cy="265" rx="12" ry="9" fill="#E6591F" stroke="#14170F" stroke-width="2"/>
+    <ellipse cx="425" cy="270" rx="12" ry="9" fill="#E6591F" stroke="#14170F" stroke-width="2"/>
+
+    <!-- Head, Neck, Face -->
+    <path d="M360,185 L360,205 L375,205 L375,185 Z" fill="#D4A373"/>
+    <!-- Beard & Jawline -->
+    <path d="M352,170 C352,195 378,198 382,185 L382,165 Z" fill="#52311C"/>
+    <!-- Face Profile -->
+    <path d="M354,160 C354,150 374,150 378,160 L378,172 C370,176 358,174 354,168 Z" fill="#E2B48A"/>
+    <!-- Safety Sunglasses / Eye Protection -->
+    <path d="M352,156 L376,156 L374,164 L354,164 Z" fill="#0F172A"/>
+
+    <!-- Professional Blue Arborist Climbing Helmet with Ear Pro -->
+    <path d="M344,152 C346,132 384,132 386,152 Z" fill="#1D4ED8" stroke="#0F172A" stroke-width="3"/>
+    <rect x="340" y="148" width="48" height="6" rx="3" fill="#1E40AF"/>
+    <!-- Helmet Chin Strap -->
+    <path d="M348,154 L356,182 L364,154" fill="none" stroke="#0F172A" stroke-width="2"/>
+
+    <!-- STIHL CHAINSAW IN HANDS (Top Handle Arborist Saw) -->
+    <g transform="translate(180, 245)">
+      <!-- Guide Bar & Chain -->
+      <path d="M85,15 L10,13 C6,13 3,17 3,21 C3,25 6,29 10,29 L85,27 Z" fill="#CBD5E1" stroke="#0F172A" stroke-width="3"/>
+      <text x="25" y="24" font-family="'Impact', sans-serif" font-size="8" font-style="italic" fill="#0F172A">STIHL</text>
+      <!-- Chain teeth marks -->
+      <line x1="8" y1="13" x2="85" y2="15" stroke="#334155" stroke-width="2" stroke-dasharray="4,3"/>
+      <line x1="8" y1="29" x2="85" y2="27" stroke="#334155" stroke-width="2" stroke-dasharray="4,3"/>
+
+      <!-- White Body -->
+      <rect x="80" y="10" width="50" height="28" rx="4" fill="#F8FAFC" stroke="#0F172A" stroke-width="3"/>
+      <!-- Orange Top Shroud / Engine -->
+      <path d="M82,10 L88,0 L120,0 L126,10 Z" fill="#E6591F" stroke="#0F172A" stroke-width="3"/>
+      <text x="94" y="8" font-family="'Impact', sans-serif" font-size="7" fill="#FFFFFF">STIHL</text>
+      <!-- Top Handle and Wrap Bar -->
+      <path d="M82,0 Q98,-12 115,-3" fill="none" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <!-- Foreground Branch Overhang with Green Leaves -->
+  <g opacity="0.95">
+    <path d="M600,0 C520,30 450,80 390,100" stroke="#3A2417" stroke-width="6"/>
+    <circle cx="430" cy="80" r="28" fill="#52A441"/>
+    <circle cx="470" cy="65" r="32" fill="#67BC54"/>
+    <circle cx="510" cy="50" r="35" fill="#4B963B"/>
+  </g>
+
+  <!-- Informational Overlay Strip at Bottom Right -->
+  <rect x="20" y="380" width="560" height="50" rx="8" fill="#14170FE6" stroke="#8FCB3E" stroke-width="2"/>
+  <text x="40" y="402" font-family="'Anton', sans-serif" font-size="18" fill="#FFFFFF" letter-spacing="1">COREY COUPLAND</text>
+  <text x="180" y="401" font-family="'Work Sans', sans-serif" font-weight="700" font-size="13" fill="#8FCB3E">| ISA Certified Arborist #TX-377420A</text>
+  <text x="40" y="420" font-family="'Work Sans', sans-serif" font-weight="500" font-size="12" fill="#F4F0E2">20+ Years of Hands-On Houston Tree Industry Experience • Precision Rigging & Safe Removals</text>
+</svg>

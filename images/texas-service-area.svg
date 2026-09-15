@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 260" width="100%" height="100%" role="img" aria-label="Texas state silhouette marking Houston and surrounding communities">
+  <defs>
+    <radialGradient id="houstonGlow" cx="68%" cy="72%" r="40%">
+      <stop offset="0%" stop-color="#8FCB3E" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#2F6B2A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Texas State Path Outline -->
+  <path d="M 68,12 L 126,12 L 126,78 L 222,78 L 220,118 L 246,144 L 236,170 L 254,196 L 228,214 L 198,246 L 166,242 L 140,210 L 102,174 L 62,180 L 18,138 L 46,92 L 68,92 Z" fill="#1B3320" stroke="#8FCB3E" stroke-width="4"/>
+
+  <!-- Radar / Service Coverage Radius over Greater Houston Area -->
+  <circle cx="198" cy="192" r="38" fill="url(#houstonGlow)"/>
+  <circle cx="198" cy="192" r="28" fill="none" stroke="#8FCB3E" stroke-width="2" stroke-dasharray="4,3"/>
+  <circle cx="198" cy="192" r="16" fill="none" stroke="#8FCB3E" stroke-width="1.5"/>
+
+  <!-- Houston Star Pinpoint -->
+  <polygon points="198,184 200.5,190 207,190 201.8,193.8 203.8,200 198,196 192.2,200 194.2,193.8 189,190 195.5,190" fill="#FFFFFF" stroke="#14170F" stroke-width="1.5"/>
+
+  <!-- Label Callout -->
+  <rect x="110" y="218" width="162" height="34" rx="4" fill="#14170F" stroke="#8FCB3E" stroke-width="1.5"/>
+  <text x="191" y="232" text-anchor="middle" font-family="'Anton', sans-serif" font-size="12" fill="#8FCB3E" letter-spacing="1">HOUSTON, TEXAS</text>
+  <text x="191" y="246" text-anchor="middle" font-family="'Work Sans', sans-serif" font-weight="700" font-size="9" fill="#FFFFFF">&amp; SURROUNDING AREAS</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300" width="100%" height="100%" role="img" aria-label="ISA Certified Arborist Badge - Corey Coupland TX-377420A">
+  <defs>
+    <linearGradient id="isaGreenGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1B3320"/>
+      <stop offset="100%" stop-color="#142618"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Frame -->
+  <rect x="4" y="4" width="232" height="292" rx="10" fill="#14170F" stroke="#8FCB3E" stroke-width="4"/>
+  <rect x="10" y="10" width="220" height="280" rx="8" fill="url(#isaGreenGrad)" stroke="#2F6B2A" stroke-width="2"/>
+
+  <!-- Top Banner: CERTIFIED ARBORIST -->
+  <rect x="16" y="18" width="208" height="42" rx="4" fill="#1B3320" stroke="#8FCB3E" stroke-width="2"/>
+  <text x="120" y="38" text-anchor="middle" font-family="'Anton', 'Arial Black', sans-serif" font-weight="900" font-size="16" fill="#8FCB3E" letter-spacing="2">CERTIFIED</text>
+  <text x="120" y="53" text-anchor="middle" font-family="'Anton', 'Arial Black', sans-serif" font-weight="900" font-size="15" fill="#FFFFFF" letter-spacing="2.5">ARBORIST</text>
+
+  <!-- ISA Oak Leaf Emblem -->
+  <g transform="translate(48, 72)">
+    <!-- Stylized Oak Leaf with multi-lobes in vibrant lime green -->
+    <path d="M72,12 C72,25 90,28 92,42 C94,54 82,60 84,72 C86,84 100,92 92,106 C86,116 75,116 74,130 L68,130 C67,116 56,116 50,106 C42,92 56,84 58,72 C60,60 48,54 50,42 C52,28 70,25 70,12 Z" fill="#8FCB3E" stroke="#14170F" stroke-width="2"/>
+    <!-- Tree Trunk Base -->
+    <path d="M66,128 L76,128 L80,140 L62,140 Z" fill="#4A3324"/>
+    <!-- Leaf veins -->
+    <line x1="71" y1="20" x2="71" y2="128" stroke="#1B3320" stroke-width="2.5"/>
+    <line x1="71" y1="42" x2="88" y2="34" stroke="#1B3320" stroke-width="2"/>
+    <line x1="71" y1="48" x2="54" y2="40" stroke="#1B3320" stroke-width="2"/>
+    <line x1="71" y1="72" x2="82" y2="64" stroke="#1B3320" stroke-width="2"/>
+    <line x1="71" y1="78" x2="60" y2="70" stroke="#1B3320" stroke-width="2"/>
+    <line x1="71" y1="102" x2="88" y2="94" stroke="#1B3320" stroke-width="2"/>
+    <line x1="71" y1="108" x2="54" y2="100" stroke="#1B3320" stroke-width="2"/>
+  </g>
+
+  <!-- Big Bold ISA acronym -->
+  <text x="120" y="222" text-anchor="middle" font-family="'Anton', 'Impact', sans-serif" font-weight="900" font-size="34" fill="#8FCB3E" letter-spacing="4">ISA</text>
+  <text x="120" y="238" text-anchor="middle" font-family="'Work Sans', sans-serif" font-weight="700" font-size="9" fill="#F4F0E2" letter-spacing="1">INTERNATIONAL SOCIETY OF ARBORICULTURE</text>
+
+  <!-- Credential Box at Bottom -->
+  <rect x="20" y="246" width="200" height="38" rx="5" fill="#F4F0E2" stroke="#8FCB3E" stroke-width="2"/>
+  <text x="120" y="261" text-anchor="middle" font-family="'Work Sans', sans-serif" font-weight="800" font-size="12" fill="#14170F">Corey Coupland</text>
+  <text x="120" y="276" text-anchor="middle" font-family="'Work Sans', sans-serif" font-weight="900" font-size="12" fill="#2F6B2A" letter-spacing="1">TX-377420A</text>
+</svg>
