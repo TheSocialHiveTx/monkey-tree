@@ -110,6 +110,36 @@ select:focus-visible {
   padding-right: 20px;
 }
 
+/* Grid children: never overflow their track (excludes header) */
+.hero-grid > *,
+.trust-strip > *,
+.proof-grid > *,
+.arborist-grid > *,
+.process-grid > *,
+.emergency-container > *,
+.area-grid > *,
+.contact-grid > *,
+.footer-grid > * {
+  min-width: 0;
+}
+
+/* NAP icon style — clean geometric symbols */
+.nap-item > span:first-child {
+  font-size: 0.9rem;
+  color: var(--color-lime);
+  flex-shrink: 0;
+  width: 18px;
+  text-align: center;
+  line-height: 1;
+}
+
+/* Mobile nav icon style */
+.mobile-nav-link > span.nav-icon,
+.mobile-nav-link::before {
+  color: var(--color-lime);
+  font-size: 0.75rem;
+}
+
 /* Typography Utilities */
 h1, h2, h3, h4, .font-display {
   font-family: var(--font-display);
@@ -1099,8 +1129,15 @@ p {
 .arborist-grid {
   display: grid;
   grid-template-columns: 1fr 1.15fr;
-  align-items: center;
+  align-items: start;
   gap: 50px;
+}
+
+/* Prevent columns from overflowing their grid track */
+.arborist-grid > * {
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .arborist-visual-stack {
@@ -1116,17 +1153,35 @@ p {
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  background-color: var(--color-black);
+  aspect-ratio: 4 / 3;
+  background-color: #3D7E31;
+}
+
+.arborist-photo-card img,
+.arborist-photo-card svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .arborist-badge-overlay {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  max-width: 140px;
+  top: 12px;
+  right: 12px;
+  width: clamp(80px, 22%, 130px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   border-radius: var(--radius-sm);
   overflow: hidden;
+  z-index: 2;
+}
+
+.arborist-badge-overlay img {
+  position: static;
+  width: 100%;
+  height: auto;
 }
 
 .arborist-bio-content {
@@ -1718,15 +1773,15 @@ p {
    ========================================================================== */
 @media (max-width: 1060px) {
   .header-nav {
-    display: none;
+    display: none !important;
   }
 
   .header-actions {
-    display: none;
+    display: none !important;
   }
 
   .mobile-header-bar-actions {
-    display: flex;
+    display: flex !important;
   }
 
   .top-hours,
