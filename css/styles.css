@@ -55,6 +55,7 @@ html {
   font-family: var(--font-body);
   line-height: 1.6;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden; /* prevent horizontal scroll at root level */
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -409,7 +410,7 @@ p {
   color: var(--color-white);
   line-height: 1.05;
   letter-spacing: 0.5px;
-  white-space: nowrap;
+  white-space: nowrap; /* overridden in mobile media query */
 }
 
 .header-brand-tagline {
@@ -418,7 +419,7 @@ p {
   font-weight: 700;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  white-space: nowrap;
+  white-space: nowrap; /* overridden in mobile media query */
 }
 
 /* Desktop Navigation */
@@ -1365,11 +1366,36 @@ p {
   background-color: var(--color-forest-dark);
   border: 3px solid var(--color-lime);
   border-radius: var(--radius-md);
-  padding: 30px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
-  align-items: center;
-  box-shadow: var(--shadow-md);
+}
+
+/* Responsive iframe wrapper — 4:3 aspect on desktop */
+.area-map-embed-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 70%; /* aspect ratio: height relative to width */
+  flex-shrink: 0;
+}
+
+.area-map-embed-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.area-map-label {
+  padding: 14px 18px;
+  text-align: center;
+  background-color: var(--color-forest-dark);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .area-list-card {
@@ -1845,3 +1871,333 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   MOBILE OPTIMIZATION — phones ≤ 480px
+   Fixes overflow, reduces excessive padding, rescales elements
+   ========================================================================== */
+@media (max-width: 480px) {
+  /* --- Global --- */
+  .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  /* Buttons: allow wrapping so long text (phone number in CTA) doesn't overflow */
+  .btn {
+    white-space: normal;
+    word-break: break-word;
+    padding: 12px 18px;
+    font-size: 1.1rem;
+  }
+
+  /* --- Top Announcement Bar --- */
+  .top-announcement-bar {
+    font-size: 0.7rem;
+    padding: 4px 0;
+  }
+
+  .top-bar-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .top-bar-left {
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .top-bar-right {
+    justify-content: center;
+  }
+
+  .top-tag-emergency {
+    font-size: 0.7rem;
+  }
+
+  /* --- Header --- */
+  .header-container {
+    height: 56px;
+    gap: 8px;
+  }
+
+  .header-brand {
+    gap: 8px;
+  }
+
+  .header-logo-frame,
+  .header-logo-img {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Allow brand text to wrap rather than push off screen */
+  .header-brand-title {
+    font-size: 1rem;
+    white-space: normal;
+    line-height: 1.1;
+  }
+
+  .header-brand-tagline {
+    font-size: 0.6rem;
+    letter-spacing: 0.3px;
+    white-space: normal;
+  }
+
+  .mobile-call-pill {
+    font-size: 0.8rem;
+    padding: 5px 9px;
+    min-height: 32px;
+  }
+
+  /* --- Hero Section --- */
+  .hero-section {
+    padding: 36px 0 28px;
+  }
+
+  .hero-grid {
+    gap: 24px;
+  }
+
+  .hero-subhead {
+    font-size: 1.05rem;
+  }
+
+  .hero-arborist-callout {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+  }
+
+  /* Shrink hero mascot on small phones */
+  .hero-mascot-img {
+    max-width: 260px;
+    margin: 0 auto;
+  }
+
+  /* --- Trust Strip --- */
+  .trust-strip {
+    margin-top: 28px;
+    padding-top: 20px;
+    gap: 12px;
+  }
+
+  .trust-item {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+
+  .trust-icon-box {
+    width: 40px;
+    height: 40px;
+  }
+
+  .trust-item-title {
+    font-size: 1rem;
+  }
+
+  /* --- Services Section --- */
+  .services-section {
+    padding: 50px 0 44px;
+  }
+
+  .section-header {
+    margin-bottom: 28px;
+  }
+
+  /* Work-order header: stack title and meta vertically */
+  .work-order-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 14px 16px;
+  }
+
+  .work-order-title {
+    font-size: 1.1rem;
+  }
+
+  .work-order-meta {
+    font-size: 0.75rem;
+  }
+
+  /* Service items: reduce horizontal padding, tighten gap */
+  .service-item {
+    padding: 16px 14px;
+    gap: 12px;
+  }
+
+  .service-name {
+    font-size: 1.2rem;
+  }
+
+  .service-desc {
+    font-size: 0.9rem;
+  }
+
+  .service-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 14px;
+  }
+
+  /* --- Proof Band --- */
+  .proof-band {
+    padding: 40px 0;
+  }
+
+  .proof-card {
+    padding: 18px 14px;
+  }
+
+  /* ISA cert number is long — scale it down */
+  .proof-stat {
+    font-size: clamp(1.4rem, 6vw, 2.2rem);
+    word-break: break-all;
+  }
+
+  .proof-label {
+    font-size: 0.95rem;
+  }
+
+  /* --- Arborist Section --- */
+  .arborist-section {
+    padding: 50px 0;
+  }
+
+  .arborist-grid {
+    gap: 28px;
+  }
+
+  .arborist-quote {
+    font-size: 0.95rem;
+    padding: 12px 14px;
+  }
+
+  /* --- Process Section --- */
+  .process-section {
+    padding: 50px 0;
+  }
+
+  .process-step {
+    padding: 28px 16px 20px;
+  }
+
+  /* --- Emergency Band --- */
+  .emergency-band {
+    padding: 44px 0;
+  }
+
+  .emergency-container {
+    gap: 28px;
+  }
+
+  .emergency-phone-card {
+    padding: 18px 16px;
+  }
+
+  .emergency-phone-number {
+    font-size: clamp(1.5rem, 7vw, 2rem);
+    word-break: break-word;
+  }
+
+  .emergency-phone-card .ask-for {
+    font-size: 0.9rem;
+  }
+
+  /* --- Service Area Section --- */
+  .service-area-section {
+    padding: 50px 0;
+  }
+
+  .area-map-card {
+    /* overflow: hidden kept from base — no padding override needed */
+  }
+
+  /* Taller aspect ratio on small screens so map is usable */
+  .area-map-embed-wrapper {
+    padding-bottom: 85%;
+  }
+
+  /* --- Contact / Estimate Section --- */
+  .contact-section {
+    padding: 50px 0;
+  }
+
+  .contact-grid {
+    gap: 28px;
+  }
+
+  .contact-big-phone {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    word-break: break-word;
+  }
+
+  .estimate-form-card {
+    padding: 20px 16px;
+  }
+
+  .form-title {
+    font-size: 1.45rem;
+  }
+
+  /* --- Footer --- */
+  .site-footer {
+    padding: 40px 0 20px;
+  }
+
+  .footer-grid {
+    gap: 24px;
+  }
+
+  .footer-logo-row {
+    gap: 10px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* --- Modal --- */
+  .modal-dialog {
+    padding: 20px 16px;
+  }
+}
+
+/* Extra-small phones (≤ 360px) */
+@media (max-width: 360px) {
+  .header-brand-tagline {
+    display: none; /* Tagline too cramped — hide it at tiny sizes */
+  }
+
+  .header-brand-title {
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: clamp(1.9rem, 8vw, 2.4rem);
+  }
+
+  h2 {
+    font-size: clamp(1.6rem, 7vw, 2rem);
+  }
+
+  .hero-mascot-img {
+    max-width: 200px;
+  }
+}
+
