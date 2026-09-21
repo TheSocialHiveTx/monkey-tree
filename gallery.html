@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO -->
+    <title>Work Gallery | Monkey Business Tree Care LLC | Houston Tree Service Photos</title>
+    <meta name="description" content="See Monkey Business Tree Care LLC's real job photos – tree removal, precision rope climbing, stump grinding, and storm cleanup across Houston, TX. ISA Certified Arborist Corey Coupland." />
+    <link rel="canonical" href="https://monkeybusinesstreecare.com/gallery.html" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://monkeybusinesstreecare.com/gallery.html" />
+    <meta property="og:title" content="Work Gallery | Monkey Business Tree Care LLC" />
+    <meta property="og:description" content="Real job photos from Houston's ISA Certified arborist tree service." />
+    <meta property="og:image" content="images/monkey-biz.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/monkey-biz.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet" />
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <style>
+      /* ── Gallery-page-specific styles ── */
+
+      /* ─── Page Hero Banner ─── */
+      .gallery-hero {
+        background: var(--color-forest-dark);
+        padding: 40px 0 32px;
+        border-bottom: 3px solid var(--color-lime);
+        text-align: center;
+      }
+      .gallery-hero-title {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        color: var(--color-white);
+        letter-spacing: 0.03em;
+        line-height: 1.1;
+        margin-bottom: 10px;
+      }
+      .gallery-hero-title span { color: var(--color-lime); }
+      .gallery-hero-sub {
+        color: var(--color-parchment);
+        font-size: 1.05rem;
+        max-width: 560px;
+        margin: 0 auto 18px;
+      }
+      .gallery-hero-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--color-orange);
+        color: var(--color-white);
+        font-family: var(--font-display);
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        padding: 11px 24px;
+        border-radius: var(--radius-md);
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+      .gallery-hero-cta:hover { background: var(--color-orange-hover); }
+
+      /* ─── Filter Tabs ─── */
+      .gallery-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        padding: 28px 16px 8px;
+      }
+      .filter-btn {
+        background: none;
+        border: 2px solid var(--color-lime);
+        color: var(--color-forest-dark);
+        font-family: var(--font-display);
+        font-size: 0.85rem;
+        letter-spacing: 0.05em;
+        padding: 7px 18px;
+        border-radius: 99px;
+        cursor: pointer;
+        transition: background 0.18s, color 0.18s;
+      }
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--color-lime);
+        color: var(--color-ink);
+      }
+
+      /* ─── Masonry via CSS Columns ─── */
+      .gallery-section {
+        padding: 24px 0 64px;
+        background: var(--color-parchment);
+      }
+      .gallery-grid {
+        columns: 4;
+        column-gap: 14px;
+        padding: 0 16px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      @media (max-width: 1024px) { .gallery-grid { columns: 3; } }
+      @media (max-width: 680px)  { .gallery-grid { columns: 2; } }
+      @media (max-width: 400px)  { .gallery-grid { columns: 1; } }
+
+      .gallery-item {
+        break-inside: avoid;
+        margin-bottom: 14px;
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        box-shadow: var(--shadow-md);
+        background: var(--color-ink);
+        transition: transform 0.22s, box-shadow 0.22s;
+        display: block;
+      }
+      .gallery-item:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+      }
+      .gallery-item img {
+        width: 100%;
+        height: auto;          /* natural height — no cropping, no black bars */
+        display: block;
+        transition: transform 0.35s, opacity 0.35s;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.04);
+        opacity: 0.88;
+      }
+
+      /* Overlay label */
+      .gallery-item-label {
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        background: linear-gradient(transparent, rgba(14,16,10,0.85));
+        color: var(--color-white);
+        font-family: var(--font-display);
+        font-size: 0.82rem;
+        letter-spacing: 0.06em;
+        padding: 24px 12px 10px;
+        opacity: 0;
+        transition: opacity 0.22s;
+      }
+      .gallery-item:hover .gallery-item-label { opacity: 1; }
+
+      /* Hidden items (filtered out) */
+      .gallery-item[hidden] { display: none; }
+
+      /* ─── Lightbox ─── */
+      #lightbox {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9000;
+        background: rgba(14,16,10,0.93);
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      }
+      #lightbox.open { display: flex; }
+      #lightbox-img {
+        max-width: min(90vw, 1000px);
+        max-height: 85vh;
+        object-fit: contain;
+        border-radius: var(--radius-md);
+        box-shadow: 0 0 60px rgba(143,203,62,0.25);
+        display: block;
+      }
+      #lightbox-caption {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(14,16,10,0.75);
+        color: var(--color-parchment);
+        font-size: 0.9rem;
+        padding: 6px 18px;
+        border-radius: 99px;
+        white-space: nowrap;
+      }
+      .lightbox-close {
+        position: fixed;
+        top: 18px; right: 20px;
+        background: var(--color-lime);
+        color: var(--color-ink);
+        border: none;
+        font-size: 1.6rem;
+        line-height: 1;
+        width: 44px; height: 44px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        font-weight: 700;
+      }
+      .lightbox-nav {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(143,203,62,0.85);
+        color: var(--color-ink);
+        border: none;
+        font-size: 1.8rem;
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex; align-items: center; justify-content: center;
+        font-weight: 700;
+        transition: background 0.18s;
+      }
+      .lightbox-nav:hover { background: var(--color-lime); }
+      #lightbox-prev { left: 14px; }
+      #lightbox-next { right: 14px; }
+
+      /* ─── CTA Strip ─── */
+      .gallery-cta-strip {
+        background: var(--color-forest-dark);
+        text-align: center;
+        padding: 40px 16px;
+        border-top: 3px solid var(--color-lime);
+      }
+      .gallery-cta-strip h2 {
+        font-family: var(--font-display);
+        font-size: clamp(1.4rem, 3vw, 2.2rem);
+        color: var(--color-white);
+        margin-bottom: 10px;
+      }
+      .gallery-cta-strip p {
+        color: var(--color-parchment);
+        margin-bottom: 20px;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .gallery-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    </style>
+  </head>
+
+  <body>
+    <!-- ── TOP ANNOUNCEMENT BAR ── -->
+    <aside class="top-announcement-bar" aria-label="Announcement and Emergency Hotline">
+      <div class="container top-bar-container">
+        <div class="top-bar-left">
+          <span class="top-tag-emergency">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            24/7 EMERGENCY STORM RESPONSE
+          </span>
+          <span class="top-bullet" aria-hidden="true">&bull;</span>
+          <span class="top-cred-item">ISA Certified Arborist #TX-377420A</span>
+          <span class="top-bullet" aria-hidden="true">&bull;</span>
+          <span class="top-cred-item">Fully Insured</span>
+        </div>
+        <div class="top-bar-right">
+          <span class="top-hours">Mon&ndash;Sat 7am&ndash;7pm</span>
+          <span class="top-bullet" aria-hidden="true">&bull;</span>
+          <a href="tel:7138267232" class="top-call-link" aria-label="Direct Phone Line: 713-826-7232">
+            <span>&#9742; Direct:</span>
+            <strong>713-826-7232</strong>
+            <span class="ask-corey">(Ask for Corey)</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── STICKY HEADER ── -->
+    <header class="site-header" id="site-header">
+      <div class="container header-container">
+        <a href="index.html" class="header-brand" aria-label="Monkey Business Tree Care LLC Homepage">
+          <div class="header-logo-frame">
+            <img src="images/monkey-biz.png" alt="Monkey Business Tree Care mascot logo" class="header-logo-img" width="50" height="50" />
+            <span class="logo-isa-pill" title="ISA Certified Arborist #TX-377420A">ISA</span>
+          </div>
+          <div class="header-brand-text">
+            <span class="header-brand-title">MONKEY BUSINESS</span>
+            <span class="header-brand-tagline">TREE CARE LLC &bull; HOUSTON, TX</span>
+          </div>
+        </a>
+
+        <nav class="header-nav" aria-label="Primary Navigation">
+          <ul class="nav-links">
+            <li><a href="index.html#services" class="nav-link">Services</a></li>
+            <li><a href="index.html#arborist" class="nav-link">Meet Corey</a></li>
+            <li><a href="index.html#credentials" class="nav-link">Credentials</a></li>
+            <li><a href="index.html#how-it-works" class="nav-link">Process</a></li>
+            <li>
+              <a href="index.html#emergency" class="nav-link nav-link-emergency">
+                <span class="emergency-nav-dot" aria-hidden="true"></span>
+                24/7 Storm
+              </a>
+            </li>
+            <li><a href="gallery.html" class="nav-link" aria-current="page">Gallery</a></li>
+            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <a href="tel:7138267232" class="header-call-btn" aria-label="Call Corey at 713-826-7232">
+            <span class="header-call-icon" aria-hidden="true">&#9742;</span>
+            <div class="header-call-info">
+              <span class="header-call-label">CALL COREY</span>
+              <span class="phone-number">713-826-7232</span>
+            </div>
+          </a>
+          <a href="tel:7138267232" class="btn btn-orange header-cta-btn">Free Estimate</a>
+        </div>
+
+        <div class="mobile-header-bar-actions">
+          <a href="tel:7138267232" class="mobile-call-pill" aria-label="Call Corey at 713-826-7232">
+            <span aria-hidden="true">&#9742;</span>
+            <span>Call</span>
+          </a>
+          <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobile-drawer">
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+            <span class="hamburger-bar"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer -->
+      <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+        <div class="mobile-drawer-content">
+          <div class="mobile-drawer-banner">
+            <span class="mobile-cred">&#9733; ISA Certified Arborist #TX-377420A</span>
+            <span class="mobile-cred">&#10004; Fully Insured</span>
+          </div>
+          <nav aria-label="Mobile Navigation">
+            <ul class="mobile-nav-list">
+              <li><a href="index.html#services" class="mobile-nav-link">&#9672; All Tree Services</a></li>
+              <li><a href="index.html#arborist" class="mobile-nav-link">&#9673; Meet Corey (Arborist)</a></li>
+              <li><a href="index.html#credentials" class="mobile-nav-link">&#9670; Credentials &amp; Proof</a></li>
+              <li><a href="index.html#how-it-works" class="mobile-nav-link">&#9881; How It Works</a></li>
+              <li><a href="index.html#emergency" class="mobile-nav-link mobile-nav-alert">&#9888; 24/7 Storm Response</a></li>
+              <li><a href="gallery.html" class="mobile-nav-link">&#128247; Work Gallery</a></li>
+              <li><a href="index.html#contact" class="mobile-nav-link">&#9993; Contact &amp; Location</a></li>
+            </ul>
+          </nav>
+          <div class="mobile-drawer-footer">
+            <a href="tel:7138267232" class="btn btn-orange mobile-drawer-btn">Request Free Estimate &rarr;</a>
+            <a href="tel:7138267232" class="btn btn-phone mobile-drawer-btn">&#9742; Call Corey: 713-826-7232</a>
+          </div>
+        </div>
+      </div>
+      <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" aria-hidden="true"></div>
+    </header>
+
+    <!-- ── GALLERY HERO ── -->
+    <div class="gallery-hero">
+      <div class="container">
+        <p class="gallery-hero-title">OUR <span>WORK GALLERY</span></p>
+        <p class="gallery-hero-sub">Real jobs. Real results. See the precision, safety gear, and heavy equipment we bring to every Houston tree project.</p>
+        <a href="tel:7138267232" class="gallery-hero-cta">&#9742; Call Corey: 713-826-7232</a>
+      </div>
+    </div>
+
+    <!-- ── FILTER TABS ── -->
+    <div class="gallery-filters" role="group" aria-label="Filter gallery by service type">
+      <button class="filter-btn active" data-filter="all">All Work</button>
+      <button class="filter-btn" data-filter="climbing">Rope Climbing</button>
+      <button class="filter-btn" data-filter="removal">Tree Removal</button>
+      <button class="filter-btn" data-filter="equipment">Equipment</button>
+    </div>
+
+    <!-- ── MAIN GALLERY ── -->
+    <section class="gallery-section" aria-label="Photo Gallery">
+      <div class="gallery-grid" id="gallery-grid">
+
+        <!-- Rope climbing shots -->
+        <div class="gallery-item tall" data-category="climbing"
+             data-src="image/30f1dfa6-7508-44e3-9647-600b40885e57.jpg"
+             data-caption="Arborist ascending into a massive live oak – Houston, TX">
+          <img src="image/30f1dfa6-7508-44e3-9647-600b40885e57.jpg"
+               alt="Arborist in lime green shirt climbing with ropes into a large live oak tree"
+               loading="lazy" />
+          <span class="gallery-item-label">Rope Climbing</span>
+        </div>
+
+        <div class="gallery-item tall" data-category="climbing"
+             data-src="image/37091949-fab8-4228-8ce9-d31035939537.jpg"
+             data-caption="High canopy work – precision rope access">
+          <img src="image/37091949-fab8-4228-8ce9-d31035939537.jpg"
+               alt="Arborist high in tree canopy with safety ropes and helmet"
+               loading="lazy" />
+          <span class="gallery-item-label">Rope Climbing</span>
+        </div>
+
+        <div class="gallery-item tall" data-category="climbing"
+             data-src="image/ebeb07b5-29f9-442d-be33-f98fbd1abdf3.jpg"
+             data-caption="Seated in the canopy, rigging the next cut">
+          <img src="image/ebeb07b5-29f9-442d-be33-f98fbd1abdf3.jpg"
+               alt="Arborist seated on a large branch high in a live oak tree"
+               loading="lazy" />
+          <span class="gallery-item-label">Rope Climbing</span>
+        </div>
+
+        <div class="gallery-item" data-category="climbing"
+             data-src="image/87546c31-b4ad-4580-9d77-425bf18c24db.jpg"
+             data-caption="Mid-canopy rigging – controlled limb removal">
+          <img src="image/87546c31-b4ad-4580-9d77-425bf18c24db.jpg"
+               alt="Arborist in the canopy of a large tree with rigging ropes"
+               loading="lazy" />
+          <span class="gallery-item-label">Canopy Rigging</span>
+        </div>
+
+        <div class="gallery-item" data-category="climbing"
+             data-src="image/ffa3e267-e2c1-4d2e-8b5f-6810a2deb21c.jpg"
+             data-caption="Oak trimming – arborist in full safety kit">
+          <img src="image/ffa3e267-e2c1-4d2e-8b5f-6810a2deb21c.jpg"
+               alt="Arborist high in oak tree with climbing ropes next to wood fence"
+               loading="lazy" />
+          <span class="gallery-item-label">Oak Trimming</span>
+        </div>
+
+        <div class="gallery-item tall" data-category="climbing"
+             data-src="image/ec9b5daa-8e7c-4f7e-97a3-f6c2ff65976b.jpg"
+             data-caption="Top-of-tree work with controlled section drops">
+          <img src="image/ec9b5daa-8e7c-4f7e-97a3-f6c2ff65976b.jpg"
+               alt="Arborist climbing in tree canopy with ropes attached to trunk"
+               loading="lazy" />
+          <span class="gallery-item-label">Section Removal</span>
+        </div>
+
+        <!-- Tree removal shots -->
+        <div class="gallery-item" data-category="removal"
+             data-src="image/273b916e-a1b9-4f4d-bc00-b9eeb7b1490e.jpg"
+             data-caption="Full tree removal – chainsaw section work at base">
+          <img src="image/273b916e-a1b9-4f4d-bc00-b9eeb7b1490e.jpg"
+               alt="Two arborists at large tree being cut down with chainsaw and rigging ropes"
+               loading="lazy" />
+          <span class="gallery-item-label">Tree Removal</span>
+        </div>
+
+        <div class="gallery-item tall" data-category="removal"
+             data-src="image/98bb9bcb-9ac7-4301-99ea-8748bcde2b04.jpg"
+             data-caption="Arborist atop cut tree sections – mid-removal">
+          <img src="image/98bb9bcb-9ac7-4301-99ea-8748bcde2b04.jpg"
+               alt="Arborist standing on top of tree sections during removal with crew below"
+               loading="lazy" />
+          <span class="gallery-item-label">Tree Removal</span>
+        </div>
+
+        <div class="gallery-item" data-category="removal"
+             data-src="image/b4e46dcd-4560-414a-813c-ceb67455e85f.jpg"
+             data-caption="Post-removal – chainsaw bucking of large trunk">
+          <img src="image/b4e46dcd-4560-414a-813c-ceb67455e85f.jpg"
+               alt="Arborist with chainsaw cutting large felled trunk into sections"
+               loading="lazy" />
+          <span class="gallery-item-label">Tree Removal</span>
+        </div>
+
+        <div class="gallery-item" data-category="removal"
+             data-src="image/bb467b43-edfe-42bd-b686-99e3466fd8ed.jpg"
+             data-caption="Debris field after removal – before cleanup">
+          <img src="image/bb467b43-edfe-42bd-b686-99e3466fd8ed.jpg"
+               alt="Large tree removal job with branches and logs scattered on grass lawn"
+               loading="lazy" />
+          <span class="gallery-item-label">Full Removal</span>
+        </div>
+
+        <div class="gallery-item" data-category="removal"
+             data-src="image/b8cfeb1a-17b4-4502-bf6c-d63b9ae85b40.jpg"
+             data-caption="Team cleanup after large tree removal">
+          <img src="image/b8cfeb1a-17b4-4502-bf6c-d63b9ae85b40.jpg"
+               alt="Crew managing Bobcat skid-steer removing debris after tree removal"
+               loading="lazy" />
+          <span class="gallery-item-label">Cleanup Crew</span>
+        </div>
+
+        <div class="gallery-item" data-category="removal"
+             data-src="image/a0223820-2106-4ea4-bdf0-1cbb69af8ee7.jpg"
+             data-caption="Storm-damaged tree – removal in progress">
+          <img src="image/a0223820-2106-4ea4-bdf0-1cbb69af8ee7.jpg"
+               alt="Arborists processing a felled tree with chainsaw on residential property"
+               loading="lazy" />
+          <span class="gallery-item-label">Tree Removal</span>
+        </div>
+
+        <!-- Equipment / wide job shots -->
+        <div class="gallery-item tall" data-category="equipment"
+             data-src="image/0fcd8b7e-2525-419c-a544-cfc5b4648c80.jpg"
+             data-caption="Bandit stump grinder + Bobcat – full equipment deployment">
+          <img src="image/0fcd8b7e-2525-419c-a544-cfc5b4648c80.jpg"
+               alt="Bandit stump grinder and Bobcat skid-steer operating in backyard during tree job"
+               loading="lazy" />
+          <span class="gallery-item-label">Stump Grinding</span>
+        </div>
+
+        <div class="gallery-item" data-category="equipment"
+             data-src="image/6ab7540a-605d-4262-a32f-57320621a8e6.jpg"
+             data-caption="Massive live oak before service – Houston backyard">
+          <img src="image/6ab7540a-605d-4262-a32f-57320621a8e6.jpg"
+               alt="Large live oak tree towering over residential fence before tree service"
+               loading="lazy" />
+          <span class="gallery-item-label">Job Assessment</span>
+        </div>
+
+        <div class="gallery-item" data-category="equipment"
+             data-src="image/6cc90a5c-679f-46e9-a441-3c9d0dce14eb.jpg"
+             data-caption="Heavy oak – full canopy view before trimming">
+          <img src="image/6cc90a5c-679f-46e9-a441-3c9d0dce14eb.jpg"
+               alt="Large live oak tree with full canopy viewed from below against blue sky"
+               loading="lazy" />
+          <span class="gallery-item-label">Tree Assessment</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── LIGHTBOX ── -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&times;</button>
+      <button class="lightbox-nav" id="lightbox-prev" aria-label="Previous image">&#8249;</button>
+      <img id="lightbox-img" src="" alt="" />
+      <button class="lightbox-nav" id="lightbox-next" aria-label="Next image">&#8250;</button>
+      <div id="lightbox-caption"></div>
+    </div>
+
+    <!-- ── CTA STRIP ── -->
+    <div class="gallery-cta-strip">
+      <div class="container">
+        <h2>READY FOR PROFESSIONAL TREE SERVICE?</h2>
+        <p>Get a free, no-obligation estimate from ISA Certified Arborist Corey Coupland. 20+ years of experience, fully insured.</p>
+        <div class="gallery-cta-btns">
+          <a href="tel:7138267232" class="btn btn-lime">&#9742; Call 713-826-7232</a>
+          <a href="index.html#contact" class="btn btn-orange">Get Free Estimate</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── FOOTER ── -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <div class="footer-logo-row">
+            <img src="images/monkey-biz.png" alt="Monkey Business Tree Care logo" width="50" height="50" loading="lazy" />
+            <span class="font-display" style="font-size:1.4rem; color:var(--color-white);">MONKEY BUSINESS TREE CARE LLC</span>
+          </div>
+          <p style="font-size:0.95rem; color:var(--color-parchment); line-height:1.6;">
+            A fully insured tree service proudly serving Houston and surrounding communities. Led by Corey Coupland, ISA Certified Arborist #TX-377420A.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-title">OUR TREE SERVICES</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#services">Tree Removal</a></li>
+            <li><a href="index.html#services">Tree Trimming &amp; Pruning</a></li>
+            <li><a href="index.html#services">Stump Grinding</a></li>
+            <li><a href="index.html#services">Storm Damage Cleanup</a></li>
+            <li><a href="index.html#services">Hazardous Tree Removal</a></li>
+            <li><a href="gallery.html">Work Gallery</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3 class="footer-title">CONTACT</h3>
+          <p style="font-size:0.95rem; margin-bottom:8px;">
+            <strong>Monkey Business Tree Care LLC</strong><br />
+            Houston, TX &amp; Surrounding Communities<br />
+            Phone: <a href="tel:7138267232" style="color:var(--color-lime); font-weight:700;">713-826-7232</a><br />
+            Ask for: Corey Coupland, Certified Arborist<br />
+            ISA License: #TX-377420A
+          </p>
+          <div style="margin-top:10px;">
+            <a href="tel:7138267232" class="btn btn-lime" style="padding:8px 16px; font-size:0.95rem;">&#9742; Call 713-826-7232</a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <div>&copy; <span id="current-year">2026</span> Monkey Business Tree Care LLC. All Rights Reserved. Fully Insured.</div>
+        <div>ISA Certified Arborist #TX-377420A &bull; Houston, Texas</div>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+      /* ── Gallery: Filter + Lightbox ── */
+      (function () {
+        const grid = document.getElementById('gallery-grid');
+        const items = Array.from(grid.querySelectorAll('.gallery-item'));
+        const lightbox = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        const lbCaption = document.getElementById('lightbox-caption');
+        let visibleItems = items.slice();
+        let currentIndex = 0;
+
+        /* Filter buttons */
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const filter = btn.dataset.filter;
+            items.forEach(item => {
+              if (filter === 'all' || item.dataset.category === filter) {
+                item.removeAttribute('hidden');
+              } else {
+                item.setAttribute('hidden', '');
+              }
+            });
+            visibleItems = items.filter(i => !i.hasAttribute('hidden'));
+          });
+        });
+
+        /* Open lightbox */
+        function openLightbox(index) {
+          currentIndex = index;
+          const item = visibleItems[currentIndex];
+          lbImg.src = item.dataset.src;
+          lbImg.alt = item.querySelector('img').alt;
+          lbCaption.textContent = item.dataset.caption || '';
+          lightbox.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+          lightbox.classList.remove('open');
+          document.body.style.overflow = '';
+          lbImg.src = '';
+        }
+
+        function showNext() { openLightbox((currentIndex + 1) % visibleItems.length); }
+        function showPrev() { openLightbox((currentIndex - 1 + visibleItems.length) % visibleItems.length); }
+
+        items.forEach((item, i) => {
+          item.addEventListener('click', () => {
+            visibleItems = items.filter(it => !it.hasAttribute('hidden'));
+            openLightbox(visibleItems.indexOf(item));
+          });
+        });
+
+        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+        document.getElementById('lightbox-next').addEventListener('click', showNext);
+        document.getElementById('lightbox-prev').addEventListener('click', showPrev);
+        lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+
+        document.addEventListener('keydown', e => {
+          if (!lightbox.classList.contains('open')) return;
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowRight') showNext();
+          if (e.key === 'ArrowLeft') showPrev();
+        });
+
+        /* Footer year */
+        const yearEl = document.getElementById('current-year');
+        if (yearEl) yearEl.textContent = new Date().getFullYear();
+      })();
+    </script>
+  </body>
+</html>
