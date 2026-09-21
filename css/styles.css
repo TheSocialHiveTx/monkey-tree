@@ -779,7 +779,7 @@ p {
   right: 0;
   bottom: 0;
   /* Dark overlay on top of photo for legibility, image shifted down to reveal action */
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.18) 100%), url("/image/bb467b43-edfe-42bd-b686-99e3466fd8ed.jpg");
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.18) 100%), url("../image/bb467b43-edfe-42bd-b686-99e3466fd8ed.jpg");
   background-size: cover, cover;
   background-position: center, center 65%; /* shift image down to show Corey cutting */
   background-repeat: no-repeat, no-repeat;
